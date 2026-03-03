@@ -1,0 +1,49 @@
+[package]
+name = "tokio-tquic"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75.0"
+license = "Apache-2.0"
+description = "A Tokio-friendly async wrapper around TQUIC with a Quinn-compatible API"
+keywords = ["quic", "tokio", "async", "networking"]
+categories = ["network-programming", "asynchronous"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[features]
+default = []
+tquic-ext = []
+
+[dependencies]
+tquic = { path = "../tquic", default-features = false }
+tokio = { version = "1", features = ["rt", "net", "sync", "time", "macros"] }
+bytes = "1"
+thiserror = "2"
+tracing = "0.1"
+pin-project-lite = "0.2"
+dashmap = "6"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "io-util", "fs"] }
+rcgen = "0.13"
+anyhow = "1"
+tempfile = "3"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[[example]]
+name = "connection"
+required-features = []
+
+[[example]]
+name = "server"
+required-features = []
+
+[[example]]
+name = "client"
+required-features = []
+
+[[example]]
+name = "single_socket"
+required-features = []
