@@ -1,6 +1,6 @@
 [package]
 name = "tokio-tquic"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.75.0"
 license = "Apache-2.0"
@@ -17,7 +17,7 @@ default = []
 tquic-ext = []
 
 [dependencies]
-tquic = { path = "../tquic", default-features = false }
+tquic = { version = "1.6", default-features = false }
 tokio = { version = "1", features = ["rt", "net", "sync", "time", "macros"] }
 bytes = "1"
 thiserror = "2"
